@@ -9,19 +9,6 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"/>
     <link href="../css/style.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style1 {
-            margin-bottom: 1.5rem;
-            width: auto 95%;
-            text-align:left;
-            padding: 10px;
-        }
-        .auto-style3 {
-            margin-bottom: 3rem;
-            width: auto 95%;
-            padding: 10px
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server" style="background-color: #0094ff; width: auto 60px; text-align:center; margin: 100px 175px 0 175px" >
@@ -29,17 +16,17 @@
         <div class="row align-content-center">
             <h2 style="margin-top: 15px">Bienvenido</h2>
 
-            <div class="auto-style1">
+            <div class="textbox">
                 <asp:Label ID="Label1" runat="server" Text="Correo" CssClass="from-inline" ></asp:Label>
                 <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="auto-style1"">
+            <div class="textbox"">
                 <asp:Label ID="Label2" runat="server" Text="Clave" CssClass="form-inline"></asp:Label>
                 <asp:TextBox ID="txtClave" runat="server" Type="Password" CssClass="form-control"></asp:TextBox>
             </div>
 
-            <div class="auto-style3">
-                <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Iniciar sesion" />
+            <div class="boton">
+                <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Iniciar sesion" OnClick="Button1_Click" />
             </div>
             <div>
                 <h4>Registrese <a href="registro.aspx"><strong>Aqui</strong></a></h4>

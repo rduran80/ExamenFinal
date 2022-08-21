@@ -67,12 +67,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Catalogos\articulos.aspx" />
+    <Content Include="Catalogos\auditoria.aspx" />
+    <Content Include="Catalogos\inventario.aspx" />
+    <Content Include="Catalogos\tipoArticulos.aspx" />
+    <Content Include="Catalogos\tipoUsuarios.aspx" />
+    <Content Include="Catalogos\usuarios.aspx" />
+    <Content Include="css\mainMaster.css" />
     <Content Include="css\style.css" />
     <Content Include="Pages\login.aspx" />
     <Content Include="Pages\registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\articulos.aspx.cs">
+      <DependentUpon>articulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\articulos.aspx.designer.cs">
+      <DependentUpon>articulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\auditoria.aspx.cs">
+      <DependentUpon>auditoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\auditoria.aspx.designer.cs">
+      <DependentUpon>auditoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\inventario.aspx.cs">
+      <DependentUpon>inventario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\inventario.aspx.designer.cs">
+      <DependentUpon>inventario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\tipoArticulos.aspx.cs">
+      <DependentUpon>tipoArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\tipoArticulos.aspx.designer.cs">
+      <DependentUpon>tipoArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\tipoUsuarios.aspx.cs">
+      <DependentUpon>tipoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\tipoUsuarios.aspx.designer.cs">
+      <DependentUpon>tipoUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\usuarios.aspx.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\usuarios.aspx.designer.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Menus\mainMenu.Master.cs">
       <DependentUpon>mainMenu.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,9 +155,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Catalogos\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

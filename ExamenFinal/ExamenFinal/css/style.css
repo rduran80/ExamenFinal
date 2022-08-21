@@ -1,3 +1,16 @@
 ﻿body{
     background-color: #0094ff;
 }
+
+.textbox {
+    margin-bottom: 1.5rem;
+    width: auto 95%;
+    text-align: left;
+    padding: 10px;
+}
+
+.boton {
+    margin-bottom: 3rem;
+    width: auto 95%;
+    padding: 10px
+}
