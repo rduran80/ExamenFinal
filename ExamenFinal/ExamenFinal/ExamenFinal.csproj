@@ -67,12 +67,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\style.css" />
+    <Content Include="Pages\login.aspx" />
+    <Content Include="Pages\registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menus\mainMenu.Master.cs">
+      <DependentUpon>mainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menus\mainMenu.Master.designer.cs">
+      <DependentUpon>mainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\registro.aspx.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\registro.aspx.designer.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Menus\mainMenu.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,6 +105,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Catalogos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
