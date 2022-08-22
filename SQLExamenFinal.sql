@@ -13,8 +13,10 @@ create table articulo
 	costo_Articulo money not null,
 	cantidadArticulo int
 
-	constraint PK_idarticulo primary key (codTipoArticulo)
+	constraint PK_idarticulo primary key (codArticulo)
 )
+drop table articulo
+select * from tipoArticulo
 
 --Procedimientos articulo
 create proc insertarArticulo
@@ -26,8 +28,12 @@ create proc insertarArticulo
 	@cantidadArticulo int
 	as
 	begin
+	set identity_insert articulo on
 	insert into articulo values(@codArticulo,@codTipoArticulo,@descArticulo,@precioArticulo,@costo_Articulo,@cantidadArticulo)
 	end
+	drop proc insertarArticulo
+exec insertarArticulo 302,300,'Coca cola',1200,800,25
+select * from tipoArticulo
 
 create proc eliminarArticulo
 	@codArticulo int
@@ -56,10 +62,10 @@ create table tipoArticulo
 	codTipoArticulo int not null,
 	descTipoArticulo varchar(50)not null,
 
-	constraint PK_idCodArticulo primary key (id),
-	constraint FK_CodTipoArticulo foreign key (codTipoArticulo) references articulo(codTipoArticulo),
+	constraint PK_idCodArticulo primary key (codTipoArticulo),
 	constraint UC_codTipoArticulo unique(codTipoArticulo)
 )
+
 --Procedimientos tipoArticulo
 create proc insertarTipoArticulo
 	@codTipoArticulo int,
@@ -68,6 +74,7 @@ create proc insertarTipoArticulo
 	begin
 	insert into tipoArticulo values(@codTipoArticulo,@descTipoArticulo)
 	end
+select * from tipoArticulo
 
 create proc actualizarTipoArticulo
     @id int,
@@ -77,13 +84,19 @@ create proc actualizarTipoArticulo
 	begin
 	update tipoArticulo set codTipoArticulo=@codTipoArticulo,descTipoArticulo=@descTipoArticulo where id = @id
 	end
-	drop proc actualizarTipoArticulo
+
 
 create proc eliminarTipoArticulo
 	@codTipoArticulo int
 	as
 	begin
 	delete tipoArticulo where codTipoArticulo=@codTipoArticulo
+	end
+
+create proc obtTipoArticulo
+	as
+	begin
+	select * from tipoArticulo
 	end
 
 --tabla usuario
@@ -98,26 +111,16 @@ create table usuario
 	constraint FK_tipoUsuario foreign key (tipoUsuario) references tipoUsuario(tipoUsuario),
 	constraint UC_nombreUsuario unique(nombreUsuario)
 )
-alter table usuario
-add constraint UC_nombreUsuario unique(nombreUsuario)
-
-alter table usuario
-alter column codUsuario int
 
 insert into usuario values('Roy',1,'123'),('Ana',2,'456')
 select * from usuario
-delete usuario where codUsuario= 1010
 
 --Procedimientos usuario
 create proc consultaUsuario
 	as
 	begin
-	select * from usuario
+	select codUsuario as Codigo,nombreUsuario as Nombre,tipoUsuario as Tipo, claveUsuario as Clave from usuario
 	end
-exec consultaUsuario
-
-drop proc obtUsuario
-exec obtUsuario 'Roy',123
 
 create proc obtUsuario
 	@nombreUsuario varchar(50),
@@ -126,7 +129,6 @@ create proc obtUsuario
 	begin
 	select * from usuario where nombreUsuario=@nombreUsuario and claveUsuario=@claveUsuario
 	end
-drop proc obtUsuario
 exec obtUsuario 'Roy',123
 
 create proc insertarUsuario
@@ -137,8 +139,6 @@ create proc insertarUsuario
 	begin
 	insert into usuario values(@nombreUsuario,@tipoUsuario,@claveUsuario)
 	end
-drop proc actualizarUsuario
-
 
 create proc actualizarUsuario
 	@nombreUsuario varchar(50),
@@ -148,8 +148,7 @@ create proc actualizarUsuario
 	begin
 	update usuario set nombreUsuario=@nombreUsuario,tipoUsuario=@tipoUsuario,claveUsuario=@claveUsuario where nombreUsuario=@nombreUsuario
 	end
-
-
+	
 create proc eliminarUsuario
 	@nombreUsuario varchar(50)
 	as
@@ -157,7 +156,6 @@ create proc eliminarUsuario
 	delete usuario where nombreUsuario=@nombreUsuario
 	end
 select * from usuario
-exec eliminarUsuario 'Pablo'
 
 --tabla tipoUsuario
 create table tipoUsuario
@@ -170,6 +168,8 @@ create table tipoUsuario
 	constraint UC_tipoUsuario unique(tipoUsuario)
 	   
 )
+insert into tipoUsuario values(1,'Administrador'),(2,'Usuario')
+
 --Procedimientos
 create proc insertarTipoUsuario
 	@tipoUsuario int,
@@ -194,6 +194,7 @@ create proc eliminarTipoUsuario
 	begin
 	delete tipoUsuario where id=@id
 	end 
+select * from tipoUsuario
 
 --Tabla auditoria articulo
 create table Articulo_Auditoria
@@ -204,7 +205,8 @@ create table Articulo_Auditoria
 	Tipo varchar(20),
 	Fecha Datetime
 )
-drop table articulo_Auditoria
+drop table Articulo_Auditoria
+select * from articulo
 select * from Articulo_Auditoria
 
 create trigger Trigger_Articulo_Auditoria
@@ -214,11 +216,11 @@ create trigger Trigger_Articulo_Auditoria
 		as
 		begin
 		insert into Articulo_Auditoria (id, Descripcion,Usuario,Tipo,Fecha)
-		select i.id, i.Descripcion, 'Administrador', 'Ingresado',GETDATE() from inserted i
+		select i.id, i.descArticulo, 'Administrador', 'Ingresado',GETDATE() from inserted i
 		union all
-		select d.id, d.Descripcion, 'Administrador', 'Eliminado',GETDATE() from inserted d
+		select d.id, d.descArticulo, 'Administrador', 'Eliminado',GETDATE() from inserted d
 		end
 
 exec Trigger_articulo_Auditoria
-select * from tipoUsuario
-insert into tipoUsuario values(1,'Administrador'),(2,'Usuario')
+drop trigger Trigger_Articulo_Auditoria
+
