@@ -35,7 +35,8 @@ namespace ExamenFinal.Pages
 
             if (registro.Read())
             {
-                Response.Redirect("~/Catalogos/articulos.aspx");
+                registro[2].Equals(1);
+                Response.Redirect("~/Catalogos/usuarios.aspx");
             }
             else
             {

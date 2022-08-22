@@ -29,16 +29,8 @@
             <div class="row align-content-center">
                 <h2 style="width: 95%; margin-top: 15px""><strong>Registro usuarios</strong></h2>
                 <div class="auto-style1">
-                    <asp:Label ID="Label1" runat="server" Text="Correo" CssClass="from-inline"></asp:Label>
-                    <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="auto-style1">
-                    <asp:Label ID="Label2" runat="server" Text="Nombre" CssClass="from-inline"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Usuario" CssClass="from-inline"></asp:Label>
                     <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="auto-style1">
-                    <asp:Label ID="Label3" runat="server" Text="Apellidos" CssClass="from-inline"></asp:Label>
-                    <asp:TextBox ID="txtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="auto-style1">
                     <asp:Label ID="Label4" runat="server" Text="Clave" CssClass="from-inline"></asp:Label>
@@ -47,13 +39,13 @@
                 <div class="auto-style1">
                     <asp:Label ID="Label5" runat="server" Text="Tipo de usuario" CssClass="from-inline"></asp:Label>
                     <br />
-                    <asp:DropDownList ID="DropDownList1" runat="server" Width="175px">
+                    <asp:DropDownList ID="drdTipo" runat="server" Width="175px">
                         <asp:ListItem Value="1">Administrador</asp:ListItem>
                         <asp:ListItem Value="2">Regular</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="auto-style3">
-                    <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Registrar" />
+                    <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Registrar" OnClick="Button1_Click" />
                 </div>
             </div>
         </div>

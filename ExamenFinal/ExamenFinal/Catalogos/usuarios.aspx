@@ -25,7 +25,7 @@
                             <asp:ListItem Value="1">Administaror</asp:ListItem>
                             <asp:ListItem Value="2">Regular</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDrdTipo" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT [tipoUsuario] FROM [usuario]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDrdTipo" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT [tipoUsuario] FROM [tipoUsuario]"></asp:SqlDataSource>
                     </div>
 
                 </div>

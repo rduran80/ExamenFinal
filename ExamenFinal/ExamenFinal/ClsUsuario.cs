@@ -27,12 +27,12 @@ namespace ExamenFinal.Clases
         public static string GetTipousuario() { return tipoUsuario; }
         public static string GetClave() { return claveUsuario; }
 
-        public static void SetEmail(string cod)
+        public static void SetCod(string cod)
         {
             codUsuario = cod;
         }
 
-        public static void SetIdusuario(string nombre)
+        public static void SetNombreUsuario(string nombre)
         {
             nombreUsuario = nombre;
         }
@@ -96,7 +96,30 @@ namespace ExamenFinal.Clases
             comando.ExecuteNonQuery();
             conexion.Close();
         }
-          
+         
+        public static void validarUsuario(string nombre,string clave)
+        {
+            string s = System.Configuration.ConfigurationManager.ConnectionStrings["presupuestoConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+
+            SqlCommand comando = new SqlCommand("validarUsuario", conexion)
+            {
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
+            conexion.Open();
+            comando.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = nombre;
+            comando.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
+            SqlDataReader registro = comando.ExecuteReader();
+
+            if (registro.Read())
+            {
+                ClsUsuario.SetCod(registro[0].ToString());
+                ClsUsuario.SetNombreUsuario(registro[1].ToString());
+                ClsUsuario.SetTipousuario(registro[2].ToString());
+                ClsUsuario.SetClave(registro[3].ToString());
+            }
+            conexion.Close();
+        }
 
 
     }

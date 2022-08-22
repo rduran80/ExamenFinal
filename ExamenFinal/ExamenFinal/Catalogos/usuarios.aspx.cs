@@ -17,12 +17,17 @@ namespace ExamenFinal.Catalogos
 
     public partial class usuarios : System.Web.UI.Page
     {
-        DataTable dt = new DataTable();
+        //DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                SPLlenargrid(dt);
+                if (Clases.ClsUsuario.GetTipousuario().Equals(2))
+                {
+                    Button1.Enabled = false;
+                    Button2.Enabled = false;
+                    Button2.Enabled = false;
+                }
             }
         }
 

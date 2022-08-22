@@ -13,5 +13,12 @@ namespace ExamenFinal.Pages
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+            Clases.ClsUsuario.insertarUsuario(txtNombre.Text, txtClave.Text, int.Parse(drdTipo.SelectedValue));
+            Response.Redirect("login.aspx");
+        }
     }
 }
