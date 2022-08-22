@@ -23,26 +23,26 @@ namespace ExamenFinal.Clases
         }
 
         public string GetCod() { return codUsuario; }
-        public static string GetNombre() { return nombreUsuario; }
-        public static string GetTipousuario() { return tipoUsuario; }
-        public static string GetClave() { return claveUsuario; }
+        public string GetNombre() { return nombreUsuario; }
+        public string GetTipousuario() { return tipoUsuario; }
+        public string GetClave() { return claveUsuario; }
 
-        public static void SetCod(string cod)
+        public void SetCod(string cod)
         {
             codUsuario = cod;
         }
 
-        public static void SetNombreUsuario(string nombre)
+        public void SetNombreUsuario(string nombre)
         {
             nombreUsuario = nombre;
         }
 
-        public static void SetTipousuario(string Tipouser)
+        public void SetTipousuario(string Tipouser)
         {
             tipoUsuario = Tipouser;
         }
 
-        public static void SetClave(string clave)
+        public void SetClave(string clave)
         {
             claveUsuario = clave;
         }
@@ -97,9 +97,9 @@ namespace ExamenFinal.Clases
             conexion.Close();
         }
          
-        public string validarUsuario(string nombre,string clave)
+        public static int validarUsuario(string nombre,string clave)
         {
-            ClsUsuario persona = new ClsUsuario();
+            int tipoUsuario = 0;
             string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
 
@@ -111,14 +111,14 @@ namespace ExamenFinal.Clases
             comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = nombre;
             comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = clave;
             SqlDataReader registro = comando.ExecuteReader();
-            /*
+            
             if (registro.Read())
             {
-                ClsUsuario.SetTipousuario(registro[2].ToString());
+                registro[2].ToString();
                 
             }
-            conexion.Close();*/
-            return persona.ToString();
+            conexion.Close();
+            return tipoUsuario;
         }
 
 

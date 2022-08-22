@@ -17,23 +17,27 @@ namespace ExamenFinal.Catalogos
 
     public partial class usuarios : System.Web.UI.Page
     {
-        ClsUsuario persona = new ClsUsuario();
+        //ClsUsuario persona = new ClsUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            if (!persona.validarUsuario(txtUser.Text, txtClave.Text).Equals(2) == true)
+            
+            if (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text).Equals(1))
             {
-                //Button1.Enabled = false;
+                Button1.Enabled = false;
                 Button2.Enabled = false;
                 Button3.Enabled = false;
                 GridView1.Visible = false;
-                lbltipo.Text = "False";
+                lbltipo.Text = "True";
             }
             else 
             {
-                lbltipo.Text = "True";
-            }*/
-            lbltipo.Text = persona.validarUsuario(txtUser.Text, txtClave.Text).Equals(2).ToString();
+                Button1.Enabled = true;
+                Button2.Enabled = true;
+                Button3.Enabled = true;
+                GridView1.Visible = true;
+                lbltipo.Text = "False";
+            }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -59,7 +63,7 @@ namespace ExamenFinal.Catalogos
             txtClave.Text = "";
             GridView1.DataBind();
         }
-
+        /*
         public void validarUsuario(string nombre, string clave)
         {
             ClsUsuario persona = new ClsUsuario();
@@ -85,6 +89,6 @@ namespace ExamenFinal.Catalogos
             }
             conexion.Close();
         }
-
+        */
     }
 }

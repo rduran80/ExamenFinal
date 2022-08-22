@@ -10,7 +10,6 @@
                 <div class="textbox">
                     <asp:Label ID="Label1" runat="server" Text="ID Usuario" CssClass="from-inline"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUser" ErrorMessage="No se admiten campos vacio" Font-Bold="True" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                         <asp:TextBox ID="txtId" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="textbox">

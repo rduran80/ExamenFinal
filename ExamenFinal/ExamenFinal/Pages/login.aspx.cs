@@ -20,7 +20,7 @@ namespace ExamenFinal.Pages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            Clases.ClsUsuario persona;
             string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
 
@@ -36,6 +36,7 @@ namespace ExamenFinal.Pages
             if (registro.Read())
             {
                 registro[2].Equals(1);
+                persona.SetTipousuario(registro[2].ToString());
                 Response.Redirect("~/Catalogos/usuarios.aspx");
             }
             else
