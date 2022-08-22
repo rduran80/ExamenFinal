@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ExamenFinal;
 
 namespace ExamenFinal.Catalogos
 {
@@ -13,6 +14,11 @@ namespace ExamenFinal.Catalogos
         protected void Page_Load(object sender, EventArgs e)
         {
             
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            clsar .insertarTipoArt(txtcodArt.Text, txtCodTipoArt.Text, txtDescArt.Text, txtPrecioArt.Text, txtCostoArt.Text, txtCantdArt.Text);
         }
     }
 }
