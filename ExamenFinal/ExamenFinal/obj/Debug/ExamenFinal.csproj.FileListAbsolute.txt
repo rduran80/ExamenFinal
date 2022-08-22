@@ -1,3 +1,4 @@
+C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\obj\Debug\ExamenFinal.csproj.CoreCompileInputs.cache
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\bin\ExamenFinal.dll.config
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\bin\ExamenFinal.dll
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\bin\ExamenFinal.pdb
@@ -52,8 +53,6 @@ C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\Exam
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\obj\Debug\ExamenFinal.csproj.AssemblyReference.cache
-C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\obj\Debug\ExamenFinal.csproj.CoreCompileInputs.cache
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\obj\Debug\ExamenFinal.csproj.CopyComplete
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\obj\Debug\ExamenFinal.dll
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\ExamenFinal\ExamenFinal\ExamenFinal\obj\Debug\ExamenFinal.pdb

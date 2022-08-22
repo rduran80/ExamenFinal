@@ -122,6 +122,8 @@
     <Compile Include="Catalogos\usuarios.aspx.designer.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClsArticulo.cs" />
+    <Compile Include="ClsUsuario.cs" />
     <Compile Include="Menus\mainMenu.Master.cs">
       <DependentUpon>mainMenu.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

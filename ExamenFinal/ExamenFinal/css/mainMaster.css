@@ -27,26 +27,6 @@ GridView {
     color: white;
 }
 
-.div-inicio {
-    height: 400px;
-    width: 50%;
-    margin: 0 auto;
-    padding: 10px;
-    text-align: center;
-    border: 1px;
-    color: white;
-}
-
-.div-inicio-personas {
-    height: 417px;
-    margin: 0 auto;
-    padding: 10px;
-    text-align: center;
-    border: 1px;
-    color: white;
-    float: left;
-}
-
 .navbar {
     overflow: hidden;
     background-color: #333;

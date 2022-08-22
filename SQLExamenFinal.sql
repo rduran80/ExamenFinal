@@ -1,6 +1,6 @@
 create database ExamenFinal
 
-use ExamenFinal
+use ExamenFinal 
 
 --tabla articulo
 create table articulo
@@ -89,47 +89,75 @@ create proc eliminarTipoArticulo
 --tabla usuario
 create table usuario
 (
-	id int identity (1,1),
-	codUsuario int not null,
+	codUsuario int identity (1000,1),
 	nombreUsuario varchar(50)not null,
 	tipoUsuario int not null,
 	claveUsuario varchar(50)not null,
 
 	constraint PK_idusuario primary key (codUsuario),
 	constraint FK_tipoUsuario foreign key (tipoUsuario) references tipoUsuario(tipoUsuario),
+	constraint UC_nombreUsuario unique(nombreUsuario)
 )
-insert into usuario values(100,'Roy',1,'123'),(101,'Ana',2,'456')
+alter table usuario
+add constraint UC_nombreUsuario unique(nombreUsuario)
+
+alter table usuario
+alter column codUsuario int
+
+insert into usuario values('Roy',1,'123'),('Ana',2,'456')
 select * from usuario
+delete usuario where codUsuario= 1010
 
 --Procedimientos usuario
+create proc consultaUsuario
+	as
+	begin
+	select * from usuario
+	end
+exec consultaUsuario
+
+drop proc obtUsuario
+exec obtUsuario 'Roy',123
+
+create proc obtUsuario
+	@nombreUsuario varchar(50),
+	@claveUsuario varchar(50)
+	as
+	begin
+	select * from usuario where nombreUsuario=@nombreUsuario and claveUsuario=@claveUsuario
+	end
+drop proc obtUsuario
+exec obtUsuario 'Roy',123
 
 create proc insertarUsuario
-	@codUsuario int,
 	@nombreUsuario varchar(50),
 	@tipoUsuario int,
 	@claveUsuario varchar(50)
 	as
 	begin
-	insert into usuario values(@codUsuario,@nombreUsuario,@tipoUsuario,@claveUsuario)
+	insert into usuario values(@nombreUsuario,@tipoUsuario,@claveUsuario)
 	end
+drop proc actualizarUsuario
+
 
 create proc actualizarUsuario
-    @id int, 
-	@codUsuario int,
 	@nombreUsuario varchar(50),
 	@tipoUsuario int,
 	@claveUsuario varchar(50)
 	as
 	begin
-	update usuario set codUsuario=@codUsuario,nombreUsuario=@nombreUsuario,tipoUsuario=@tipoUsuario,claveUsuario=@claveUsuario where id=@id
+	update usuario set nombreUsuario=@nombreUsuario,tipoUsuario=@tipoUsuario,claveUsuario=@claveUsuario where nombreUsuario=@nombreUsuario
 	end
 
+
 create proc eliminarUsuario
-	@codUsuario int
+	@nombreUsuario varchar(50)
 	as
 	begin
-	delete usuario where codUsuario=@codUsuario
+	delete usuario where nombreUsuario=@nombreUsuario
 	end
+select * from usuario
+exec eliminarUsuario 'Pablo'
 
 --tabla tipoUsuario
 create table tipoUsuario

@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login</title>
+    <link href="../css/style.css" rel="stylesheet" />
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"/>
-    <link href="../css/style.css" rel="stylesheet" />
+        <title>Login</title>
 </head>
 <body>
     <form id="form1" runat="server" style="background-color: #0094ff; width: auto 60px; text-align:center; margin: 100px 175px 0 175px" >
