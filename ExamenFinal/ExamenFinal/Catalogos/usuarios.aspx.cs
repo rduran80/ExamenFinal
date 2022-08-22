@@ -17,14 +17,13 @@ namespace ExamenFinal.Catalogos
 
     public partial class usuarios : System.Web.UI.Page
     {
+        DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
             {
-                string constr = ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
-                SqlConnection con = new SqlConnection(constr);
+                SPLlenargrid(dt);
             }
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -32,6 +31,7 @@ namespace ExamenFinal.Catalogos
             ClsUsuario.insertarUsuario(txtUser.Text,txtClave.Text,int.Parse(drdTipoUsuario.Text));
             txtUser.Text = "";
             txtClave.Text = "";
+            GridView1.DataBind();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -39,6 +39,7 @@ namespace ExamenFinal.Catalogos
             ClsUsuario.eliminarUsuario(txtUser.Text);
             txtUser.Text = "";
             txtClave.Text = "";
+            GridView1.DataBind();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace ExamenFinal.Catalogos
             ClsUsuario.actualizarUsuario(txtUser.Text, txtClave.Text, int.Parse(drdTipoUsuario.Text));
             txtUser.Text = "";
             txtClave.Text = "";
+            GridView1.DataBind();
         }
         public void SPLlenargrid(DataTable dat)
         {

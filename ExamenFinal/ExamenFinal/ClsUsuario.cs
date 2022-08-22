@@ -97,21 +97,6 @@ namespace ExamenFinal.Clases
             conexion.Close();
         }
           
-        public static void SPLlenargrid(DataTable dat)
-        {
-
-            string constr = ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("consultaUsuario", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            //GridView1.DataSource = dt;
-            //GridView1.DataBind();
-        }
-
 
 
     }

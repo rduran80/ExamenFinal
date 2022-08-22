@@ -35,16 +35,16 @@
                     <asp:Button CssClass="btn btn-primary" ID="Button3" runat="server" Text="Modificar" OnClick="Button3_Click" />
                 </div>
                 <div>
-                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="codUsuario" DataSourceID="SqlLlenarGrid">
+                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="codUsuario" DataSourceID="SqlUsuario">
                         <AlternatingRowStyle BorderStyle="Solid" />
                         <Columns>
-                            <asp:BoundField DataField="codUsuario" HeaderText="codUsuario" InsertVisible="False" ReadOnly="True" SortExpression="codUsuario" />
-                            <asp:BoundField DataField="nombreUsuario" HeaderText="nombreUsuario" SortExpression="nombreUsuario" />
-                            <asp:BoundField DataField="tipoUsuario" HeaderText="tipoUsuario" SortExpression="tipoUsuario" />
-                            <asp:BoundField DataField="claveUsuario" HeaderText="claveUsuario" SortExpression="claveUsuario" />
+                            <asp:BoundField DataField="codUsuario" HeaderText="Usuario" InsertVisible="False" ReadOnly="True" SortExpression="codUsuario" />
+                            <asp:BoundField DataField="nombreUsuario" HeaderText="Nombre" SortExpression="nombreUsuario" />
+                            <asp:BoundField DataField="tipoUsuario" HeaderText="Tipo" SortExpression="tipoUsuario" />
+                            <asp:BoundField DataField="claveUsuario" HeaderText="Clave" SortExpression="claveUsuario" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlLlenarGrid" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT * FROM [usuario]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT * FROM [usuario]"></asp:SqlDataSource>
                 </div>
             </div>
         </div>
