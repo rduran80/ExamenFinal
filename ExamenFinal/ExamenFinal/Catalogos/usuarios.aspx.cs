@@ -17,12 +17,14 @@ namespace ExamenFinal.Catalogos
 
     public partial class usuarios : System.Web.UI.Page
     {
-        //DataTable dt = new DataTable();
+        ClsUsuario persona = new ClsUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            persona.validarUsuario(txtUser.Text, txtClave.Text);
             if (!IsPostBack)
             {
-                if (Clases.ClsUsuario.GetTipousuario().Equals(2))
+                if (
+                   Clases.ClsUsuario.GetTipousuario().Equals(2))
                 {
                     Button1.Enabled = false;
                     Button2.Enabled = false;
@@ -54,18 +56,30 @@ namespace ExamenFinal.Catalogos
             txtClave.Text = "";
             GridView1.DataBind();
         }
-        public void SPLlenargrid(DataTable dat)
+
+        public void validarUsuario(string nombre, string clave)
         {
-            string constr = ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("consultaUsuario", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            //GridView1.DataSource = dt;
-            //GridView1.DataBind();
+            ClsUsuario persona = new ClsUsuario();
+            string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+
+            SqlCommand comando = new SqlCommand("obtUsuario", conexion)
+            {
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
+            conexion.Open();
+            comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = nombre;
+            comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = clave;
+            SqlDataReader registro = comando.ExecuteReader();
+
+            if (registro.Read())
+            {
+                ClsUsuario.SetCod(registro[0].ToString());
+                ClsUsuario.SetNombreUsuario(registro[1].ToString());
+                ClsUsuario.SetTipousuario(registro[2].ToString());
+                ClsUsuario.SetClave(registro[3].ToString());
+            }
+            conexion.Close();
         }
 
     }

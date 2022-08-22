@@ -22,7 +22,7 @@ namespace ExamenFinal.Clases
             claveUsuario = clave;
         }
 
-        public static string GetCod() { return codUsuario; }
+        public string GetCod() { return codUsuario; }
         public static string GetNombre() { return nombreUsuario; }
         public static string GetTipousuario() { return tipoUsuario; }
         public static string GetClave() { return claveUsuario; }
@@ -97,18 +97,19 @@ namespace ExamenFinal.Clases
             conexion.Close();
         }
          
-        public static void validarUsuario(string nombre,string clave)
+        public void validarUsuario(string nombre,string clave)
         {
-            string s = System.Configuration.ConfigurationManager.ConnectionStrings["presupuestoConnectionString"].ConnectionString;
+            ClsUsuario persona = new ClsUsuario();
+            string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
 
-            SqlCommand comando = new SqlCommand("validarUsuario", conexion)
+            SqlCommand comando = new SqlCommand("obtUsuario", conexion)
             {
                 CommandType = System.Data.CommandType.StoredProcedure
             };
             conexion.Open();
-            comando.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = nombre;
-            comando.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
+            comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = nombre;
+            comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = clave;
             SqlDataReader registro = comando.ExecuteReader();
 
             if (registro.Read())
