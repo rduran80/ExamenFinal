@@ -13,5 +13,30 @@ namespace ExamenFinal.Catalogos
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ClsTipoUsuario.insertarTipoUsuario(int.Parse(txtId.Text), txtDescTipo.Text);
+            txtId.Text = "";
+            txtTipo.Text = "";
+            txtDescTipo.Text = "";
+            GridView1.DataBind();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            ClsTipoUsuario.actualizarTipoUsuario(int.Parse(txtTipo.Text), int.Parse(txtId.Text), txtDescTipo.Text);
+            txtId.Text = "";
+            txtTipo.Text = "";
+            txtDescTipo.Text = "";
+            GridView1.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ClsTipoUsuario.eliminarUsuario(int.Parse(txtId.Text));
+            txtId.Text = "";
+            GridView1.DataBind();
+        }
     }
 }

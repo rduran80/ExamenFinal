@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="ClsArticulo.cs" />
     <Compile Include="ClsTipoArt.cs" />
+    <Compile Include="ClsTipoUsuario.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="Menus\mainMenu.Master.cs">
       <DependentUpon>mainMenu.Master</DependentUpon>

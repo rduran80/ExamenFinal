@@ -8,6 +8,7 @@
             <div class="row align-content-center">
                 <div class="textbox">
                     <div class="textbox">
+                        <asp:Label ID="lbltipo" runat="server" Text="" CssClass="from-inline"></asp:Label><br />
                         <asp:Label ID="Label1" runat="server" Text="Usuario" CssClass="from-inline"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUser" ErrorMessage="No se admiten campos vacio" Font-Bold="True" ForeColor="#FF3300"></asp:RequiredFieldValidator>

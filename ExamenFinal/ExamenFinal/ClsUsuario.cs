@@ -97,7 +97,7 @@ namespace ExamenFinal.Clases
             conexion.Close();
         }
          
-        public void validarUsuario(string nombre,string clave)
+        public string validarUsuario(string nombre,string clave)
         {
             ClsUsuario persona = new ClsUsuario();
             string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
@@ -111,15 +111,14 @@ namespace ExamenFinal.Clases
             comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = nombre;
             comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = clave;
             SqlDataReader registro = comando.ExecuteReader();
-
+            /*
             if (registro.Read())
             {
-                ClsUsuario.SetCod(registro[0].ToString());
-                ClsUsuario.SetNombreUsuario(registro[1].ToString());
                 ClsUsuario.SetTipousuario(registro[2].ToString());
-                ClsUsuario.SetClave(registro[3].ToString());
+                
             }
-            conexion.Close();
+            conexion.Close();*/
+            return persona.ToString();
         }
 
 

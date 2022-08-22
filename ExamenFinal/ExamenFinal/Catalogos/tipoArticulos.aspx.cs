@@ -25,18 +25,20 @@ namespace ExamenFinal.Catalogos
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            ClsTipoArt.actualizarTipoArt(txtId.Text,txtCodigo.Text, txtDescripcion.Text);
+            ClsTipoArt.eliminarTipoArt(txtId.Text);
             txtId.Text = "";
-            txtCodigo.Text = "";
-            txtDescripcion.Text = "";
             GridView1.DataBind();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            ClsTipoArt.eliminarTipoArt(txtId.Text);
+
+            ClsTipoArt.actualizarTipoArt(txtId.Text, txtCodigo.Text, txtDescripcion.Text);
             txtId.Text = "";
+            txtCodigo.Text = "";
+            txtDescripcion.Text = "";
             GridView1.DataBind();
+
         }
     }
 }

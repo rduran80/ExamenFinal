@@ -32,14 +32,14 @@
                         <asp:TextBox ID="txtCostoArt" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="textbox">
-                    <asp:Label ID="Label6" runat="server" Text="Clave" CssClass="from-inline"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Costo" CssClass="from-inline"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtCantdArt" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="boton">
                     <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Ingresar" OnClick="Button1_Click" />
-                    <asp:Button CssClass="btn btn-primary" ID="Button2" runat="server" Text="Borrar" />
-                    <asp:Button CssClass="btn btn-primary" ID="Button3" runat="server" Text="Modificar" />
+                    <asp:Button CssClass="btn btn-primary" ID="Button2" runat="server" Text="Borrar" OnClick="Button2_Click" />
+                    <asp:Button CssClass="btn btn-primary" ID="Button3" runat="server" Text="Modificar" OnClick="Button3_Click" />
                 </div>
                 <div>
                     <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="codArticulo" DataSourceID="SqlInventario" Height="161px">

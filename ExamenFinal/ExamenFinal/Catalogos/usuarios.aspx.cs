@@ -20,17 +20,20 @@ namespace ExamenFinal.Catalogos
         ClsUsuario persona = new ClsUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            persona.validarUsuario(txtUser.Text, txtClave.Text);
-            if (!IsPostBack)
+            /*
+            if (!persona.validarUsuario(txtUser.Text, txtClave.Text).Equals(2) == true)
             {
-                if (
-                   Clases.ClsUsuario.GetTipousuario().Equals(2))
-                {
-                    Button1.Enabled = false;
-                    Button2.Enabled = false;
-                    Button2.Enabled = false;
-                }
+                //Button1.Enabled = false;
+                Button2.Enabled = false;
+                Button3.Enabled = false;
+                GridView1.Visible = false;
+                lbltipo.Text = "False";
             }
+            else 
+            {
+                lbltipo.Text = "True";
+            }*/
+            lbltipo.Text = persona.validarUsuario(txtUser.Text, txtClave.Text).Equals(2).ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -74,6 +77,7 @@ namespace ExamenFinal.Catalogos
 
             if (registro.Read())
             {
+                
                 ClsUsuario.SetCod(registro[0].ToString());
                 ClsUsuario.SetNombreUsuario(registro[1].ToString());
                 ClsUsuario.SetTipousuario(registro[2].ToString());
