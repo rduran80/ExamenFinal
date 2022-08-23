@@ -7,17 +7,17 @@
         <div class="container jumbotron bg-light" style="background-color: #0094ff; height: 95%; width: auto 90%; text-align: center; margin: 50px 175px 0 175px">
             <div class="row align-content-center">
                 <div>
-                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="id">
+                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataSourceID="SqlInventario">
                         <Columns>
-                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                            <asp:BoundField DataField="codArticulo" HeaderText="codArticulo" SortExpression="codArticulo" />
-                            <asp:BoundField DataField="codTipoArticulo" HeaderText="codTipoArticulo" SortExpression="codTipoArticulo" />
-                            <asp:BoundField DataField="descArticulo" HeaderText="descArticulo" SortExpression="descArticulo" />
-                            <asp:BoundField DataField="precioArticulo" HeaderText="precioArticulo" SortExpression="precioArticulo" />
-                            <asp:BoundField DataField="costo_Articulo" HeaderText="costo_Articulo" SortExpression="costo_Articulo" />
-                            <asp:BoundField DataField="cantidadArticulo" HeaderText="cantidadArticulo" SortExpression="cantidadArticulo" />
+                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
+                            <asp:BoundField DataField="Tipo Articulo" HeaderText="Tipo Articulo" SortExpression="Tipo Articulo" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                            <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
+                            <asp:BoundField DataField="Costo" HeaderText="Costo" SortExpression="Costo" />
+                            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                         </Columns>
                     </asp:GridView>
+                    <asp:SqlDataSource ID="SqlInventario" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="obtArticulos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </div>
             </div>
         </div>

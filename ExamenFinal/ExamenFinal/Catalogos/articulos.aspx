@@ -42,18 +42,14 @@
                     <asp:Button CssClass="btn btn-primary" ID="Button3" runat="server" Text="Modificar" OnClick="Button3_Click" />
                 </div>
                 <div>
-                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="codArticulo" DataSourceID="SqlInventario" Height="161px">
+                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="Tipo Articulo" DataSourceID="SqlInventario" Height="161px">
                         <Columns>
-                            <asp:BoundField DataField="codArticulo" HeaderText="codArticulo" SortExpression="codArticulo" ReadOnly="True" />
-                            <asp:BoundField DataField="codTipoArticulo" HeaderText="codTipoArticulo" SortExpression="codTipoArticulo" />
-                            <asp:BoundField DataField="descArticulo" HeaderText="descArticulo" SortExpression="descArticulo" />
-                            <asp:BoundField DataField="precioArticulo" HeaderText="precioArticulo" SortExpression="precioArticulo" />
-                            <asp:BoundField DataField="costo_Articulo" HeaderText="costo_Articulo" SortExpression="costo_Articulo" />
-                            <asp:BoundField DataField="cantidadArticulo" HeaderText="cantidadArticulo" SortExpression="cantidadArticulo" />
-                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                            <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" ReadOnly="True" InsertVisible="False" />
+                            <asp:BoundField DataField="Tipo Articulo" HeaderText="Tipo Articulo" SortExpression="Tipo Articulo" ReadOnly="True" />
+                            <asp:BoundField DataField="Descripcion Tipo" HeaderText="Descripcion Tipo" SortExpression="Descripcion Tipo" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlInventario" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT * FROM [articulo]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlInventario" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="obtTipoArticulo" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </div>
             </div>
         </div>

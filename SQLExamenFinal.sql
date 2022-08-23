@@ -13,10 +13,10 @@ create table articulo
 	costo_Articulo money not null,
 	cantidadArticulo int
 
-	constraint PK_idarticulo primary key (codArticulo)
+	constraint PK_idarticulo primary key (id)
 )
-drop table articulo
-select * from tipoArticulo
+
+select * from Articulo
 
 --Procedimientos articulo
 create proc insertarArticulo
@@ -28,12 +28,12 @@ create proc insertarArticulo
 	@cantidadArticulo int
 	as
 	begin
-	set identity_insert articulo on
 	insert into articulo values(@codArticulo,@codTipoArticulo,@descArticulo,@precioArticulo,@costo_Articulo,@cantidadArticulo)
 	end
 	drop proc insertarArticulo
-exec insertarArticulo 302,300,'Coca cola',1200,800,25
-select * from tipoArticulo
+
+exec insertarArticulo 301,300,'Coca cola',1200,800,25
+select * from tipoArticulo 
 
 create proc eliminarArticulo
 	@codArticulo int
@@ -55,6 +55,18 @@ create proc actualizarArticulo
 	precioArticulo=@precioArticulo,costo_Articulo=@costo_Articulo,cantidadArticulo=@cantidadArticulo where codArticulo=@codArticulo
 	end
 
+create proc obtArticulos
+	as
+	begin
+	select codArticulo as Codigo,
+	codTipoArticulo as [Tipo Articulo],
+	descArticulo as Descripcion,
+	precioArticulo as Precio,
+	costo_Articulo as Costo,
+	cantidadArticulo as Cantidad 
+	from articulo
+	end
+
 --tabla tipoArticulo
 create table tipoArticulo
 (
@@ -74,7 +86,6 @@ create proc insertarTipoArticulo
 	begin
 	insert into tipoArticulo values(@codTipoArticulo,@descTipoArticulo)
 	end
-select * from tipoArticulo
 
 create proc actualizarTipoArticulo
     @id int,
@@ -96,8 +107,15 @@ create proc eliminarTipoArticulo
 create proc obtTipoArticulo
 	as
 	begin
-	select * from tipoArticulo
+	select     
+	id as ID,
+	codTipoArticulo as [Tipo Articulo],
+	descTipoArticulo as [Descripcion Tipo]
+	from tipoArticulo
 	end
+
+drop proc obtTipoArticulo
+exec obtTipoArticulo
 
 --tabla usuario
 create table usuario
@@ -127,8 +145,10 @@ create proc obtUsuario
 	@claveUsuario varchar(50)
 	as
 	begin
-	select * from usuario where nombreUsuario=@nombreUsuario and claveUsuario=@claveUsuario
+	select codUsuario as Codigo,nombreUsuario as Usuario,	tipoUsuario as [Tipo Usuario],	claveUsuario as Clave
+	from usuario where nombreUsuario=@nombreUsuario and claveUsuario=@claveUsuario
 	end
+drop proc obtUsuario
 exec obtUsuario 'Roy',123
 
 create proc insertarUsuario
@@ -171,6 +191,12 @@ create table tipoUsuario
 insert into tipoUsuario values(1,'Administrador'),(2,'Usuario')
 
 --Procedimientos
+create proc obtTipoUsuario
+	as
+	begin
+	select id as ID, tipoUsuario as [Tipo Usuario],descTipoUsuario as Descripcion from tipoUsuario
+	end
+
 create proc insertarTipoUsuario
 	@tipoUsuario int,
 	@descTipoUsuario varchar(50)	
@@ -205,9 +231,12 @@ create table Articulo_Auditoria
 	Tipo varchar(20),
 	Fecha Datetime
 )
-drop table Articulo_Auditoria
-select * from articulo
-select * from Articulo_Auditoria
+
+create proc obtArticuloAuditoria
+	as
+	begin
+	select id as ID,Descripcion,Usuario,Tipo,Fecha from Articulo_Auditoria
+	end 
 
 create trigger Trigger_Articulo_Auditoria
 	on articulo
@@ -215,6 +244,7 @@ create trigger Trigger_Articulo_Auditoria
 
 		as
 		begin
+		SET IDENTITY_INSERT Articulo_Auditoria ON;
 		insert into Articulo_Auditoria (id, Descripcion,Usuario,Tipo,Fecha)
 		select i.id, i.descArticulo, 'Administrador', 'Ingresado',GETDATE() from inserted i
 		union all
@@ -224,3 +254,5 @@ create trigger Trigger_Articulo_Auditoria
 exec Trigger_articulo_Auditoria
 drop trigger Trigger_Articulo_Auditoria
 
+exec insertarArticulo 303,300,'Fanta Naranja',1200,800,25
+select * from Articulo_Auditoria
