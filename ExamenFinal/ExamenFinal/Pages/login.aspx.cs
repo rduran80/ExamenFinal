@@ -6,13 +6,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ExamenFinal;
+using ExamenFinal.Clases;
 
 namespace ExamenFinal.Pages
 {
     
     public partial class login : System.Web.UI.Page
     {
-        
+        ClsUsuario persona = new ClsUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +22,9 @@ namespace ExamenFinal.Pages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Clases.ClsUsuario persona;
+            ClsUsuario persona = new ClsUsuario();
+            persona.SetNombreUsuario(txtCorreo.Text);
+            persona.SetClave(txtClave.Text);
             string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
 
@@ -29,14 +33,13 @@ namespace ExamenFinal.Pages
                 CommandType = System.Data.CommandType.StoredProcedure
             };
             conexion.Open();
-            comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = txtCorreo.Text;
-            comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = txtClave.Text;
+            comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = persona.GetNombre();
+            comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = persona.GetClave();
             SqlDataReader registro = comando.ExecuteReader();
 
             if (registro.Read())
             {
-                registro[2].Equals(1);
-                persona.SetTipousuario(registro[2].ToString());
+                ClsUsuario.validarUsuario(persona.GetNombre(), persona.GetClave());
                 Response.Redirect("~/Catalogos/usuarios.aspx");
             }
             else

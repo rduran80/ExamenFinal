@@ -14,12 +14,25 @@ using ExamenFinal.Clases;
 
 namespace ExamenFinal.Catalogos
 {
-
+    
     public partial class usuarios : System.Web.UI.Page
     {
-        //ClsUsuario persona = new ClsUsuario();
+        //int tipoUsuario = 0;
+        //SessionParameter tipoUsuario = new SessionParameter();
+        ClsUsuario persona = new ClsUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbltipo.Text = persona.GetTipousuario().ToString();
+            if (!IsPostBack)
+            {
+                if (lbltipo.Text == "2")
+                {
+                    Button1.Enabled = false;
+                    Button1.Enabled = false;
+                    Button1.Enabled = false;
+                    GridView1.Enabled = false;
+                }
+            }
 
         }
 
@@ -46,32 +59,6 @@ namespace ExamenFinal.Catalogos
             txtClave.Text = "";
             GridView1.DataBind();
         }
-        /*
-        public void validarUsuario(string nombre, string clave)
-        {
-            ClsUsuario persona = new ClsUsuario();
-            string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
-            SqlConnection conexion = new SqlConnection(s);
 
-            SqlCommand comando = new SqlCommand("obtUsuario", conexion)
-            {
-                CommandType = System.Data.CommandType.StoredProcedure
-            };
-            conexion.Open();
-            comando.Parameters.Add("@nombreUsuario", SqlDbType.VarChar, 50).Value = nombre;
-            comando.Parameters.Add("@claveUsuario", SqlDbType.VarChar, 50).Value = clave;
-            SqlDataReader registro = comando.ExecuteReader();
-
-            if (registro.Read())
-            {
-                
-                ClsUsuario.SetCod(registro[0].ToString());
-                ClsUsuario.SetNombreUsuario(registro[1].ToString());
-                ClsUsuario.SetTipousuario(registro[2].ToString());
-                ClsUsuario.SetClave(registro[3].ToString());
-            }
-            conexion.Close();
-        }
-        */
     }
 }

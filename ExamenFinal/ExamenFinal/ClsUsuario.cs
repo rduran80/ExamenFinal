@@ -9,12 +9,11 @@ namespace ExamenFinal.Clases
     {
         private static string codUsuario { get; set; }
         private static string nombreUsuario { get; set; }
-        private static string tipoUsuario { get; set; }
+        private static int tipoUsuario { get; set; }
         private static string claveUsuario { get; set; }
-
         public ClsUsuario() { }
 
-        public ClsUsuario(string cod, string nombre, string tipo, string clave)
+        public ClsUsuario(string cod, string nombre, int tipo, string clave)
         {
             codUsuario = cod;
             nombreUsuario = nombre;
@@ -24,7 +23,7 @@ namespace ExamenFinal.Clases
 
         public string GetCod() { return codUsuario; }
         public string GetNombre() { return nombreUsuario; }
-        public string GetTipousuario() { return tipoUsuario; }
+        public int GetTipousuario() { return tipoUsuario; }
         public string GetClave() { return claveUsuario; }
 
         public void SetCod(string cod)
@@ -37,7 +36,7 @@ namespace ExamenFinal.Clases
             nombreUsuario = nombre;
         }
 
-        public void SetTipousuario(string Tipouser)
+        public void SetTipousuario(int Tipouser)
         {
             tipoUsuario = Tipouser;
         }
@@ -99,7 +98,7 @@ namespace ExamenFinal.Clases
          
         public static int validarUsuario(string nombre,string clave)
         {
-            int tipoUsuario = 0;
+            //int tipoUsuario = 0;
             string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
 
@@ -114,7 +113,7 @@ namespace ExamenFinal.Clases
             
             if (registro.Read())
             {
-                registro[2].ToString();
+                tipoUsuario = int.Parse(registro[2].ToString());
                 
             }
             conexion.Close();
