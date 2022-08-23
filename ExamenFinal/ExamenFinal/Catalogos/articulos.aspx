@@ -42,14 +42,17 @@
                     <asp:Button CssClass="btn btn-primary" ID="Button3" runat="server" Text="Modificar" OnClick="Button3_Click" />
                 </div>
                 <div>
-                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="Tipo Articulo" DataSourceID="SqlInventario" Height="161px">
+                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataSourceID="SqlInventario" Height="161px">
                         <Columns>
-                            <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" ReadOnly="True" InsertVisible="False" />
-                            <asp:BoundField DataField="Tipo Articulo" HeaderText="Tipo Articulo" SortExpression="Tipo Articulo" ReadOnly="True" />
-                            <asp:BoundField DataField="Descripcion Tipo" HeaderText="Descripcion Tipo" SortExpression="Descripcion Tipo" />
+                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
+                            <asp:BoundField DataField="Tipo Articulo" HeaderText="Tipo Articulo" SortExpression="Tipo Articulo" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                            <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
+                            <asp:BoundField DataField="Costo" HeaderText="Costo" SortExpression="Costo" />
+                            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlInventario" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="obtTipoArticulo" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlInventario" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="obtArticulos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </div>
             </div>
         </div>
