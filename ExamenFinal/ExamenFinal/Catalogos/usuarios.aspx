@@ -2,16 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <formview runat="server" style="background-color: #0094ff; width: auto 60px; text-align: center; margin: 30px 175px 0 175px">
+    <formview runat="server" style="background-color: #0094ff; width: auto 60px; text-align: center; height: auto; margin: 30px 175px 0 175px">
         <h1 style="text-align: center">Usuarios</h1>
-        <div class="container jumbotron bg-light" style="background-color: #0094ff; height: 500px; width: auto 90%; text-align: center; margin: 50px 175px 0 175px">
+        <div class="container jumbotron bg-light" style="background-color: #0094ff; height: auto; width: auto 90%; text-align: center; margin: 50px 175px 0 175px">
             <div class="row align-content-center">
                 <div class="textbox">
                     <div class="textbox">
                         <asp:Label ID="lbltipo" runat="server" Text="" CssClass="from-inline"></asp:Label><br />
                         <asp:Label ID="Label1" runat="server" Text="Usuario" CssClass="from-inline"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUser" ErrorMessage="No se admiten campos vacio" Font-Bold="True" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                         <asp:TextBox ID="txtUser" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="textbox">

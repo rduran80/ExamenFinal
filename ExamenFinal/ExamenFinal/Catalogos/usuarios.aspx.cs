@@ -21,23 +21,15 @@ namespace ExamenFinal.Catalogos
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text).Equals(1))
-            {
-                Button1.Enabled = false;
-                Button2.Enabled = false;
-                Button3.Enabled = false;
-                GridView1.Visible = false;
-                lbltipo.Text = "True";
-            }
-            else 
+            if (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text) != 2)
             {
                 Button1.Enabled = true;
                 Button2.Enabled = true;
                 Button3.Enabled = true;
                 GridView1.Visible = true;
-                lbltipo.Text = "False";
+                lbltipo.Text = (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text).ToString());
             }
-            
+           
         }
 
         protected void Button1_Click(object sender, EventArgs e)
