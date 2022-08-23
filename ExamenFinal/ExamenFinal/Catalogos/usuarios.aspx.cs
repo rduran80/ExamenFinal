@@ -20,16 +20,7 @@ namespace ExamenFinal.Catalogos
         //ClsUsuario persona = new ClsUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text) == 2)
-            {
-                Button1.Enabled = true;
-                Button2.Enabled = true;
-                Button3.Enabled = true;
-                GridView1.Visible = true;
-                lbltipo.Text = (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text).ToString());
-            }
-           
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)

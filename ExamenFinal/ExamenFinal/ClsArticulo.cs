@@ -76,8 +76,9 @@ namespace ExamenFinal.Clases
             conexion.Open();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(comando);
-            da.Fill(dt);
             conexion.Close();
+            da.Fill(dt);
+            
 
             //GridView1.DataSource = dt;
 
