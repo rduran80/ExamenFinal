@@ -17,19 +17,18 @@ namespace ExamenFinal.Catalogos
     
     public partial class usuarios : System.Web.UI.Page
     {
-        //int tipoUsuario = 0;
-        //SessionParameter tipoUsuario = new SessionParameter();
         ClsUsuario persona = new ClsUsuario();
+        string tipo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbltipo.Text = persona.GetTipousuario().ToString();
+            tipo = persona.GetTipousuario().ToString();
             if (!IsPostBack)
             {
-                if (lbltipo.Text == "2")
+                if (tipo == "2")
                 {
                     Button1.Enabled = false;
-                    Button1.Enabled = false;
-                    Button1.Enabled = false;
+                    Button2.Enabled = false;
+                    Button3.Enabled = false;
                     GridView1.Enabled = false;
                 }
             }
