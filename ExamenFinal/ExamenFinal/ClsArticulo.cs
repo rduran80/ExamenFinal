@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ExamenFinal.Clases
 {
@@ -63,5 +64,23 @@ namespace ExamenFinal.Clases
             conexion.Close();
         }
 
+        public static void LlenarGrid()
+        {
+            string s = System.Configuration.ConfigurationManager.ConnectionStrings["ExamenFinalConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+
+            SqlCommand comando = new SqlCommand("obtArticulos", conexion)
+            {
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
+            conexion.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            conexion.Close();
+
+            //GridView1.DataSource = dt;
+
+        }
     }
 }

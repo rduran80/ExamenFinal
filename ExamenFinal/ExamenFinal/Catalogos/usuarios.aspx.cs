@@ -21,7 +21,7 @@ namespace ExamenFinal.Catalogos
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text) != 2)
+            if (ClsUsuario.validarUsuario(txtUser.Text, txtClave.Text) == 2)
             {
                 Button1.Enabled = true;
                 Button2.Enabled = true;
