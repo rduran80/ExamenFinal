@@ -30,14 +30,14 @@
                     <asp:Button CssClass="btn btn-primary" ID="Button3" runat="server" Text="Modificar" OnClick="Button3_Click" />
                 </div>
                 <div>
-                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="tipoUsuario" DataSourceID="SqlTipoUsuarios">
+                    <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="Tipo Articulo" DataSourceID="SqlTipoUsuarios">
                         <Columns>
-                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                            <asp:BoundField DataField="tipoUsuario" HeaderText="tipoUsuario" ReadOnly="True" SortExpression="tipoUsuario" />
-                            <asp:BoundField DataField="descTipoUsuario" HeaderText="descTipoUsuario" SortExpression="descTipoUsuario" />
+                            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                            <asp:BoundField DataField="Tipo Articulo" HeaderText="Tipo Articulo" ReadOnly="True" SortExpression="Tipo Articulo" />
+                            <asp:BoundField DataField="Descripcion Tipo" HeaderText="Descripcion Tipo" SortExpression="Descripcion Tipo" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlTipoUsuarios" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT * FROM [tipoUsuario]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlTipoUsuarios" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="obtTipoArticulo" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </div>
             </div>
         </div>
