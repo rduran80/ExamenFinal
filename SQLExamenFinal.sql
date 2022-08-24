@@ -66,8 +66,9 @@ create proc obtArticulos
 	cantidadArticulo as Cantidad
 	from articulo
 	end
+exec obtArticulos
 
-create proc obtArticulosCod --**********************************************
+create proc obtArticulosCod
 	@codArticulo int
 	as
 	begin
@@ -94,7 +95,6 @@ create proc costoInventario
 	from articulo
 	end
 
-drop proc costoInventario
 exec costoInventario
 
 	@codArticulo int,
@@ -111,7 +111,6 @@ create proc ganancias
 	from articulo
 	end
 
-drop proc ganancias
 exec ganancias
 
 --tabla tipoArticulo
@@ -143,7 +142,6 @@ create proc actualizarTipoArticulo
 	update tipoArticulo set codTipoArticulo=@codTipoArticulo,descTipoArticulo=@descTipoArticulo where id = @id
 	end
 
-
 create proc eliminarTipoArticulo
 	@codTipoArticulo int
 	as
@@ -161,7 +159,6 @@ create proc obtTipoArticulo
 	from tipoArticulo
 	end
 
-drop proc obtTipoArticulo
 exec obtTipoArticulo
 
 --tabla usuario
@@ -195,7 +192,7 @@ create proc obtUsuario
 	select codUsuario as Codigo,nombreUsuario as Usuario,	tipoUsuario as [Tipo Usuario],	claveUsuario as Clave
 	from usuario where nombreUsuario=@nombreUsuario and claveUsuario=@claveUsuario
 	end
-drop proc obtUsuario
+
 exec obtUsuario 'Roy',123
 
 create proc insertarUsuario
@@ -222,7 +219,6 @@ create proc eliminarUsuario
 	begin
 	delete usuario where nombreUsuario=@nombreUsuario
 	end
-select * from usuario
 
 --tabla tipoUsuario
 create table tipoUsuario
@@ -267,7 +263,6 @@ create proc eliminarTipoUsuario
 	begin
 	delete tipoUsuario where id=@id
 	end 
-select * from tipoUsuario
 
 --Tabla auditoria articulo
 create table Articulo_Auditoria
@@ -301,5 +296,3 @@ create trigger Trigger_Articulo_Auditoria
 exec Trigger_articulo_Auditoria
 drop trigger Trigger_Articulo_Auditoria
 
-exec insertarArticulo 303,300,'Fanta Naranja',1200,800,25
-select * from Articulo_Auditoria
