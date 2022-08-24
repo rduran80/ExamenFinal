@@ -25,8 +25,9 @@
                     <HeaderStyle BackColor="Gray" />
                 </asp:GridView>
                 &nbsp;<asp:Label ID="Label1" Style="float:left" runat="server" Text="Codigo Articulo" CssClass="me-5"></asp:Label>
-                &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtArticulo" runat="server" CssClass="float-start" Width="58px" AutoPostBack="True"></asp:TextBox>
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlArticulos" DataTextField="codArticulo" DataValueField="codArticulo">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlArticulos" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="SELECT [codArticulo] FROM [articulo]"></asp:SqlDataSource>
                 &nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;
                 <asp:GridView ID="GridView4" Style="margin-block:5px; " runat="server" AutoGenerateColumns="False" BorderWidth="5px" CellSpacing="2" DataSourceID="SqlArtXCod" CssClass="float-start" Width="1278px">
@@ -41,7 +42,7 @@
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlArtXCod" runat="server" ConnectionString="<%$ ConnectionStrings:ExamenFinalConnectionString %>" SelectCommand="obtArticulosCod" SelectCommandType="StoredProcedure">
                     <SelectParameters>
-                        <asp:ControlParameter ControlID="txtArticulo" Name="codArticulo" PropertyName="Text" Type="Int32" />
+                        <asp:ControlParameter ControlID="DropDownList1" Name="codArticulo" PropertyName="SelectedValue" Type="Int32" />
                     </SelectParameters>
                 </asp:SqlDataSource>
 &nbsp;
