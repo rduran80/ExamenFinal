@@ -96,13 +96,13 @@ namespace ExamenFinal.Catalogos
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// Control txtCostoArt.
+        /// Control txtCantdArt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCostoArt;
+        protected global::System.Web.UI.WebControls.TextBox txtCantdArt;
 
         /// <summary>
         /// Control Label6.
@@ -114,13 +114,13 @@ namespace ExamenFinal.Catalogos
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control txtCantdArt.
+        /// Control txtCostoArt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantdArt;
+        protected global::System.Web.UI.WebControls.TextBox txtCostoArt;
 
         /// <summary>
         /// Control Button1.

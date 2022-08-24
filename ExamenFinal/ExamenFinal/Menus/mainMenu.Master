@@ -23,7 +23,7 @@
                 <a href="tipoArticulos.aspx">Tipo articulos</a>
                 <a href="usuarios.aspx">Usuarios</a>
                 <a href="tipoUsuarios.aspx">Tipo de Usuarios</a>
-                <a href="inventario.aspx">Inventario</a>
+                <a href="inventario.aspx">Reportes</a>
                 <a href="auditoria.aspx">Auditoria</a>
             </div>
             <div style="padding: 0 16px; text-align: center">

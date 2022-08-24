@@ -29,12 +29,12 @@
                 <div class="textbox">
                     <asp:Label ID="Label5" runat="server" Text="Cantidad" CssClass="from-inline"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtCostoArt" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtCantdArt" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="textbox">
                     <asp:Label ID="Label6" runat="server" Text="Costo" CssClass="from-inline"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtCantdArt" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtCostoArt" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="boton">
                     <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Ingresar" OnClick="Button1_Click" />

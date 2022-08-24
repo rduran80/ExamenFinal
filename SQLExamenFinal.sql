@@ -63,9 +63,56 @@ create proc obtArticulos
 	descArticulo as Descripcion,
 	precioArticulo as Precio,
 	costo_Articulo as Costo,
-	cantidadArticulo as Cantidad 
+	cantidadArticulo as Cantidad
 	from articulo
 	end
+
+create proc obtArticulosCod --**********************************************
+	@codArticulo int
+	as
+	begin
+	select
+	a.codTipoArticulo as [Tipo Articulo],
+	t.descTipoArticulo as [Descripcion Tipo Articulo],
+	a.descArticulo as Descripcion,
+	a.costo_Articulo * cantidadArticulo as [Costo Inventario],
+	precioArticulo * cantidadArticulo as [Proyeccion Ganancias],
+	(precioArticulo * cantidadArticulo) - (a.costo_Articulo * cantidadArticulo)
+	as Ganancias
+	from articulo a
+	inner join tipoArticulo t
+	on t.codTipoArticulo = a.codTipoArticulo where a.codArticulo = @codArticulo
+	end
+
+exec obtArticulosCod 301
+
+create proc costoInventario
+	as
+	begin
+	select sum(costo_Articulo * cantidadArticulo) as [Costo Inventario]
+
+	from articulo
+	end
+
+drop proc costoInventario
+exec costoInventario
+
+	@codArticulo int,
+	@codTipoArticulo int,
+	@descArticulo varchar(50),
+	@precioArticulo money,
+	@costo_Articulo money,
+	@cantidadArticulo int
+
+create proc ganancias
+	as
+	begin
+	select sum(precioArticulo * cantidadArticulo) - sum(costo_Articulo * cantidadArticulo) as [Total Ganancias]
+	from articulo
+	end
+
+drop proc ganancias
+exec ganancias
 
 --tabla tipoArticulo
 create table tipoArticulo
