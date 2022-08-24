@@ -26,7 +26,7 @@
                 </asp:GridView>
                 &nbsp;<asp:Label ID="Label1" Style="float:left" runat="server" Text="Codigo Articulo" CssClass="me-5"></asp:Label>
                 &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtArticulo" runat="server" CssClass="float-start" Width="58px"></asp:TextBox>
+                <asp:TextBox ID="txtArticulo" runat="server" CssClass="float-start" Width="58px" AutoPostBack="True"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;
                 <asp:GridView ID="GridView4" Style="margin-block:5px; " runat="server" AutoGenerateColumns="False" BorderWidth="5px" CellSpacing="2" DataSourceID="SqlArtXCod" CssClass="float-start" Width="1278px">
